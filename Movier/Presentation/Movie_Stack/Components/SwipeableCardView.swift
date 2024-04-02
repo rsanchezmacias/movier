@@ -19,8 +19,10 @@ enum SwipeDirection {
 class SwipeableCardView: UIView {
     
     private var panGestureRecognizer: UIPanGestureRecognizer!
+    
     private var originalCenter: CGPoint = .zero
     private var originalTransform: CGAffineTransform = .identity
+    private var angleDirection: CGFloat = 1
     
     weak var delegate: SwipeableCardViewDelegate?
     
@@ -59,10 +61,11 @@ class SwipeableCardView: UIView {
     
     @objc private func handlePanGesture(_ recognizer: UIPanGestureRecognizer) {
         let translation = recognizer.translation(in: self)
+        let location = recognizer.location(in: self)
         
         switch recognizer.state {
         case .began:
-            self.panningDidStart()
+            self.panningDidStart(location: location)
         case .changed:
             self.handlePanning(translation: translation)
         case .ended:
@@ -72,9 +75,10 @@ class SwipeableCardView: UIView {
         }
     }
     
-    private func panningDidStart() {
+    private func panningDidStart(location: CGPoint) {
         originalCenter = center
         originalTransform = transform
+        angleDirection = (self.bounds.height / 2) <= location.y ? -1 : 1
     }
     
     private func handlePanning(translation: CGPoint) {
@@ -82,7 +86,8 @@ class SwipeableCardView: UIView {
         let screenWidth: CGFloat = CGFloat(self.window?.screen.bounds.width ?? 0)
         let translationStrength = max(min(translation.x / screenWidth, 1), -1)
         
-        let rotationAngle = (CGFloat.pi / 8) * translationStrength
+        let rotationAngle = (CGFloat.pi / 8) * translationStrength * angleDirection
+        
         let scaleFactor = 1 - abs(translationStrength) / 4
         let scale = max(scaleFactor, 0.93)
         

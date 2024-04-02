@@ -18,6 +18,8 @@ class MovieStackViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        self.view.backgroundColor = .lightGray
+        
         swipeableCardStack = SwipeableCardStackView()
         self.view.addSubview(swipeableCardStack)
         swipeableCardStack.translatesAutoresizingMaskIntoConstraints = false
