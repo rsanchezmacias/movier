@@ -10,6 +10,7 @@ import UIKit
 class SwipeableCardStackView: UIView {
     
     private var cards: [SwipeableCardView] = []
+    private var visibleIndex: Int = 0
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,15 +25,24 @@ class SwipeableCardStackView: UIView {
     private func setupCardStack() { }
     
     func addCard(_ card: SwipeableCardView) {
-        self.cards.append(card)
-        card.delegate = self
+        let cardIndex = cards.count
         
-        self.addSubview(card)
-        card.translatesAutoresizingMaskIntoConstraints = false
-        card.leadingAnchor.constraint(equalTo: self.leadingAnchor).isActive = true
-        card.trailingAnchor.constraint(equalTo: self.trailingAnchor).isActive = true
-        card.topAnchor.constraint(equalTo: self.topAnchor).isActive = true
-        card.bottomAnchor.constraint(equalTo: self.bottomAnchor).isActive = true
+        card.delegate = self
+        self.cards.append(card)
+        
+        if cardIndex == 0 {
+            self.addSubview(card)
+            card.layer.zPosition = 100
+        } else {
+            self.insertSubview(card, belowSubview: cards[cardIndex - 1])
+            card.layer.zPosition = 0
+        }
+        
+        card.constraint(to: self)
+        
+        if cardIndex != visibleIndex {
+            card.hideShadow()
+        }
     }
     
 }
@@ -40,7 +50,14 @@ class SwipeableCardStackView: UIView {
 extension SwipeableCardStackView: SwipeableCardViewDelegate {
     
     func didSwipeCard(_ direction: SwipeDirection) {
-        cards.remove(at: 0)
+        cards[visibleIndex].layer.zPosition = .zero
+        cards[visibleIndex].hideShadow()
+        visibleIndex += 1
+        
+        if visibleIndex < cards.count {
+            cards[visibleIndex].layer.zPosition = 100
+            cards[visibleIndex].showShadow()
+        }
     }
     
 }

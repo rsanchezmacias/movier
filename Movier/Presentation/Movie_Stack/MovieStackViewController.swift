@@ -23,8 +23,8 @@ class MovieStackViewController: UIViewController {
         swipeableCardStack = SwipeableCardStackView()
         self.view.addSubview(swipeableCardStack)
         swipeableCardStack.translatesAutoresizingMaskIntoConstraints = false
-        swipeableCardStack.heightAnchor.constraint(equalToConstant: 600).isActive = true
-        swipeableCardStack.widthAnchor.constraint(equalToConstant: 300).isActive = true
+        swipeableCardStack.heightAnchor.constraint(equalTo: self.view.heightAnchor, multiplier: 0.85).isActive = true
+        swipeableCardStack.widthAnchor.constraint(equalTo: self.view.widthAnchor, multiplier: 0.95).isActive = true
         swipeableCardStack.centerXAnchor.constraint(equalTo: self.view.centerXAnchor).isActive = true
         swipeableCardStack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
