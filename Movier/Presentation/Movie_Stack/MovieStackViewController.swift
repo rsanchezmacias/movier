@@ -14,11 +14,10 @@ class MovieStackViewController: UIViewController {
     private var swipeableCardStack: SwipeableCardStackView!
     
     private let colors: [UIColor] = [.blue, .black, .green, .orange, .yellow]
+    private var cards: [SwipeableCardView] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        self.view.backgroundColor = .lightGray
         
         swipeableCardStack = SwipeableCardStackView()
         self.view.addSubview(swipeableCardStack)
@@ -32,8 +31,28 @@ class MovieStackViewController: UIViewController {
         for color in colors {
             let swipeView = SwipeableCardView()
             swipeView.backgroundColor = color
-            swipeableCardStack.addCard(swipeView)
+            cards.append(swipeView)
         }
+        
+        swipeableCardStack.dataSource = self
+        swipeableCardStack.delegate = self
+    }
+    
+}
+
+extension MovieStackViewController: SwipeableCardStackViewDataSource, SwipeableCardStackViewDelegate {
+    
+    func didSwipeCard(_ card: SwipeableCardView, direction: SwipeDirection) {
+        return
+    }
+    
+    func didTapOnCard(_ card: SwipeableCardView, direction: TapDirection) {
+        return
+    }
+    
+    
+    func swipeableCards() -> [SwipeableCardView] {
+        return self.cards
     }
     
 }

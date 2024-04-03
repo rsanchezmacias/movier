@@ -9,11 +9,17 @@ import UIKit
 
 protocol SwipeableCardViewDelegate: AnyObject {
     func didSwipeCard(_ direction: SwipeDirection)
+    func didTabCard(_ direction: TapDirection)
 }
 
 enum SwipeDirection {
     case left
     case right
+}
+
+enum TapDirection {
+    case left
+    case right 
 }
 
 class SwipeableCardView: UIView {
@@ -81,6 +87,8 @@ extension SwipeableCardView {
         tapFeedbackGenerator.notificationOccurred(.warning)
         let location = recognizer.location(in: self)
         let tapDirection: CGFloat = (location.x < center.x) ? -1 : 1
+        
+        self.delegate?.didTabCard(tapDirection == -1 ? .left : .right)
         
         UIView.animate(withDuration: 0.1) { [weak self] in
             guard let self = self else { return }
