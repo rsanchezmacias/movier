@@ -30,7 +30,20 @@
 		A99BFE392BBD082F004B5307 /* URLResponse+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE382BBD082F004B5307 /* URLResponse+Extension.swift */; };
 		A99BFE3B2BBD0989004B5307 /* RequestFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE3A2BBD0989004B5307 /* RequestFactory.swift */; };
 		A99BFE3D2BBD0FA3004B5307 /* MovieManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE3C2BBD0FA3004B5307 /* MovieManager.swift */; };
+		A99BFE452BBD11A4004B5307 /* MovierTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE442BBD11A4004B5307 /* MovierTests.swift */; };
+		A99BFE4E2BBD11D2004B5307 /* MovieManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE4D2BBD11D2004B5307 /* MovieManagerTests.swift */; };
+		A99BFE522BBD1245004B5307 /* MockMovieService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFE512BBD1245004B5307 /* MockMovieService.swift */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		A99BFE462BBD11A4004B5307 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = A99BFDE12BBB6A2F004B5307 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = A99BFDE82BBB6A2F004B5307;
+			remoteInfo = Movier;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		A99BFDE92BBB6A2F004B5307 /* Movier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movier.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -57,6 +70,10 @@
 		A99BFE382BBD082F004B5307 /* URLResponse+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "URLResponse+Extension.swift"; sourceTree = "<group>"; };
 		A99BFE3A2BBD0989004B5307 /* RequestFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestFactory.swift; sourceTree = "<group>"; };
 		A99BFE3C2BBD0FA3004B5307 /* MovieManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManager.swift; sourceTree = "<group>"; };
+		A99BFE422BBD11A4004B5307 /* MovierTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MovierTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		A99BFE442BBD11A4004B5307 /* MovierTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovierTests.swift; sourceTree = "<group>"; };
+		A99BFE4D2BBD11D2004B5307 /* MovieManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieManagerTests.swift; sourceTree = "<group>"; };
+		A99BFE512BBD1245004B5307 /* MockMovieService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MockMovieService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +85,13 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A99BFE3F2BBD11A4004B5307 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -75,6 +99,7 @@
 			isa = PBXGroup;
 			children = (
 				A99BFDEB2BBB6A2F004B5307 /* Movier */,
+				A99BFE432BBD11A4004B5307 /* MovierTests */,
 				A99BFDEA2BBB6A2F004B5307 /* Products */,
 				A99BFE212BBCD39A004B5307 /* Frameworks */,
 			);
@@ -84,6 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				A99BFDE92BBB6A2F004B5307 /* Movier.app */,
+				A99BFE422BBD11A4004B5307 /* MovierTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -213,6 +239,32 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		A99BFE432BBD11A4004B5307 /* MovierTests */ = {
+			isa = PBXGroup;
+			children = (
+				A99BFE4C2BBD11C2004B5307 /* Business */,
+				A99BFE4B2BBD11B9004B5307 /* Mocks */,
+				A99BFE442BBD11A4004B5307 /* MovierTests.swift */,
+			);
+			path = MovierTests;
+			sourceTree = "<group>";
+		};
+		A99BFE4B2BBD11B9004B5307 /* Mocks */ = {
+			isa = PBXGroup;
+			children = (
+				A99BFE512BBD1245004B5307 /* MockMovieService.swift */,
+			);
+			path = Mocks;
+			sourceTree = "<group>";
+		};
+		A99BFE4C2BBD11C2004B5307 /* Business */ = {
+			isa = PBXGroup;
+			children = (
+				A99BFE4D2BBD11D2004B5307 /* MovieManagerTests.swift */,
+			);
+			path = Business;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -236,6 +288,24 @@
 			productReference = A99BFDE92BBB6A2F004B5307 /* Movier.app */;
 			productType = "com.apple.product-type.application";
 		};
+		A99BFE412BBD11A4004B5307 /* MovierTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = A99BFE482BBD11A4004B5307 /* Build configuration list for PBXNativeTarget "MovierTests" */;
+			buildPhases = (
+				A99BFE3E2BBD11A4004B5307 /* Sources */,
+				A99BFE3F2BBD11A4004B5307 /* Frameworks */,
+				A99BFE402BBD11A4004B5307 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				A99BFE472BBD11A4004B5307 /* PBXTargetDependency */,
+			);
+			name = MovierTests;
+			productName = MovierTests;
+			productReference = A99BFE422BBD11A4004B5307 /* MovierTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -248,6 +318,10 @@
 				TargetAttributes = {
 					A99BFDE82BBB6A2F004B5307 = {
 						CreatedOnToolsVersion = 15.2;
+					};
+					A99BFE412BBD11A4004B5307 = {
+						CreatedOnToolsVersion = 15.2;
+						TestTargetID = A99BFDE82BBB6A2F004B5307;
 					};
 				};
 			};
@@ -268,6 +342,7 @@
 			projectRoot = "";
 			targets = (
 				A99BFDE82BBB6A2F004B5307 /* Movier */,
+				A99BFE412BBD11A4004B5307 /* MovierTests */,
 			);
 		};
 /* End PBXProject section */
@@ -282,6 +357,13 @@
 				A99BFDF62BBB6A32004B5307 /* Assets.xcassets in Resources */,
 				A99BFE0B2BBB75E7004B5307 /* MovieStackViewController.storyboard in Resources */,
 				A99BFE2A2BBCD4ED004B5307 /* TMDBKey.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		A99BFE402BBD11A4004B5307 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,7 +394,25 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		A99BFE3E2BBD11A4004B5307 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				A99BFE4E2BBD11D2004B5307 /* MovieManagerTests.swift in Sources */,
+				A99BFE522BBD1245004B5307 /* MockMovieService.swift in Sources */,
+				A99BFE452BBD11A4004B5307 /* MovierTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		A99BFE472BBD11A4004B5307 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = A99BFDE82BBB6A2F004B5307 /* Movier */;
+			targetProxy = A99BFE462BBD11A4004B5307 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		A99BFDF72BBB6A32004B5307 /* LaunchScreen.storyboard */ = {
@@ -507,6 +607,50 @@
 			};
 			name = Release;
 		};
+		A99BFE492BBD11A4004B5307 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FJAA2F3LCL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.MovierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movier.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Movier";
+			};
+			name = Debug;
+		};
+		A99BFE4A2BBD11A4004B5307 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = FJAA2F3LCL;
+				GENERATE_INFOPLIST_FILE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				MACOSX_DEPLOYMENT_TARGET = 14.2;
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.ricardosm.MovierTests;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = auto;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator macosx";
+				SWIFT_EMIT_LOC_STRINGS = NO;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Movier.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Movier";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -524,6 +668,15 @@
 			buildConfigurations = (
 				A99BFDFE2BBB6A32004B5307 /* Debug */,
 				A99BFDFF2BBB6A32004B5307 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		A99BFE482BBD11A4004B5307 /* Build configuration list for PBXNativeTarget "MovierTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				A99BFE492BBD11A4004B5307 /* Debug */,
+				A99BFE4A2BBD11A4004B5307 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
