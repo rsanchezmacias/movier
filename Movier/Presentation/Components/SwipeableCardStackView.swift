@@ -46,6 +46,8 @@ class SwipeableCardStackView: UIView, UITableViewDelegate {
         }
     }
     
+    // TODO: - Need to reuse the top two/three views. There is no need to instantiate the views over and over again if we can reuse and reset the UI. Check how UITableView accomplishes this
+    
     private func addCard(_ card: SwipeableCardView) {
         let cardIndex = cards.count
         
@@ -62,7 +64,7 @@ class SwipeableCardStackView: UIView, UITableViewDelegate {
         
         card.constraint(to: self)
         
-        if cardIndex != visibleIndex {
+        if cardIndex != visibleIndex && cardIndex != visibleIndex + 1 {
             card.hideShadow()
         }
     }

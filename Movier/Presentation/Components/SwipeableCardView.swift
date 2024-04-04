@@ -13,6 +13,7 @@ protocol SwipeableCardViewDelegate: AnyObject {
 }
 
 enum SwipeDirection {
+    case none
     case left
     case right
 }
@@ -34,6 +35,7 @@ class SwipeableCardView: UIView {
     
     // MARK: - Settable properties
     
+    private(set) var swipeDirection: SwipeDirection = .none
     weak var delegate: SwipeableCardViewDelegate?
     
     override init(frame: CGRect) {
@@ -74,6 +76,16 @@ class SwipeableCardView: UIView {
         layer.shadowOffset = CGSize(width: 0, height: 2)
         layer.shadowRadius = 10
     }
+    
+    // MARK: - Subclass methods to provide extended functionality
+    
+    func swipeDidStart(location: CGPoint) { }
+    
+    func swipeDidEnd(location: CGPoint) { }
+    
+    func swipingCard(location: CGPoint) { }
+    
+    func performSwipe(translation: CGPoint, direction: SwipeDirection) { }
     
 }
 
@@ -133,6 +145,8 @@ extension SwipeableCardView {
         originalCenter = center
         originalTransform = transform
         angleDirection = (self.bounds.height / 2) <= location.y ? -1 : 1
+        
+        swipeDidStart(location: location)
     }
     
     private func handlePanning(translation: CGPoint) {
@@ -149,6 +163,9 @@ extension SwipeableCardView {
             .translatedBy(x: translation.x, y: translation.y)
             .scaledBy(x: scale, y: scale)
         self.transform = transform
+        
+        swipingCard(location: translation)
+        updateSwipeDirection(translation: translation)
     }
     
     private func panningDidEnd(translation: CGPoint) {
@@ -159,6 +176,18 @@ extension SwipeableCardView {
         } else {
             resetCardPosition()
         }
+        
+        swipeDirection = .none
+    }
+    
+    private func updateSwipeDirection(translation: CGPoint) {
+        if translation.x < 0 {
+            swipeDirection = .left
+        } else if translation.x > 0 {
+            swipeDirection = .right
+        } else {
+            swipeDirection = .none
+        }
     }
     
     private func animateSwipe(translation: CGPoint, direction: SwipeDirection) {
@@ -168,6 +197,8 @@ extension SwipeableCardView {
         }) { [weak self] _ in
             self?.removeFromSuperview()
             self?.delegate?.didSwipeCard(direction)
+            self?.swipeDidEnd(location: translation)
+            self?.performSwipe(translation: translation, direction: direction)
         }
     }
     
@@ -176,6 +207,8 @@ extension SwipeableCardView {
             guard let self = self else { return }
             self.center = self.originalCenter
             self.transform = self.originalTransform
+            
+            self.swipeDidEnd(location: self.center)
         }
     }
     

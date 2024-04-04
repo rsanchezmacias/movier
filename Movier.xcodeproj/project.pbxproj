@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A92B7DE92BBF48D0008CD982 /* MovieSwipeableCardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A92B7DE82BBF48D0008CD982 /* MovieSwipeableCardView.swift */; };
+		A92B7DEC2BBF5053008CD982 /* Lottie in Frameworks */ = {isa = PBXBuildFile; productRef = A92B7DEB2BBF5053008CD982 /* Lottie */; };
+		A92B7DEF2BBF50F9008CD982 /* shake.json in Resources */ = {isa = PBXBuildFile; fileRef = A92B7DED2BBF50F9008CD982 /* shake.json */; };
+		A92B7DF02BBF50F9008CD982 /* nod.json in Resources */ = {isa = PBXBuildFile; fileRef = A92B7DEE2BBF50F9008CD982 /* nod.json */; };
 		A99BFDED2BBB6A2F004B5307 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFDEC2BBB6A2F004B5307 /* AppDelegate.swift */; };
 		A99BFDEF2BBB6A2F004B5307 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFDEE2BBB6A2F004B5307 /* SceneDelegate.swift */; };
 		A99BFDF12BBB6A2F004B5307 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A99BFDF02BBB6A2F004B5307 /* MainViewController.swift */; };
@@ -46,6 +50,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		A92B7DE82BBF48D0008CD982 /* MovieSwipeableCardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MovieSwipeableCardView.swift; sourceTree = "<group>"; };
+		A92B7DED2BBF50F9008CD982 /* shake.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shake.json; sourceTree = "<group>"; };
+		A92B7DEE2BBF50F9008CD982 /* nod.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = nod.json; sourceTree = "<group>"; };
 		A99BFDE92BBB6A2F004B5307 /* Movier.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Movier.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A99BFDEC2BBB6A2F004B5307 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A99BFDEE2BBB6A2F004B5307 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -82,6 +89,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A99BFE282BBCD445004B5307 /* Swinject in Frameworks */,
+				A92B7DEC2BBF5053008CD982 /* Lottie in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -95,6 +103,15 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A92B7DF12BBF5115008CD982 /* Animations */ = {
+			isa = PBXGroup;
+			children = (
+				A92B7DEE2BBF50F9008CD982 /* nod.json */,
+				A92B7DED2BBF50F9008CD982 /* shake.json */,
+			);
+			path = Animations;
+			sourceTree = "<group>";
+		};
 		A99BFDE02BBB6A2F004B5307 = {
 			isa = PBXGroup;
 			children = (
@@ -143,6 +160,7 @@
 		A99BFE012BBB6BB8004B5307 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				A92B7DF12BBF5115008CD982 /* Animations */,
 				A99BFDFA2BBB6A32004B5307 /* Info.plist */,
 				A99BFE292BBCD4ED004B5307 /* TMDBKey.plist */,
 				A99BFDF52BBB6A32004B5307 /* Assets.xcassets */,
@@ -172,6 +190,7 @@
 		A99BFE0C2BBBA350004B5307 /* Components */ = {
 			isa = PBXGroup;
 			children = (
+				A92B7DE82BBF48D0008CD982 /* MovieSwipeableCardView.swift */,
 				A99BFE0D2BBBA365004B5307 /* SwipeableCardView.swift */,
 				A99BFE0F2BBBC6C5004B5307 /* SwipeableCardStackView.swift */,
 			);
@@ -283,6 +302,7 @@
 			name = Movier;
 			packageProductDependencies = (
 				A99BFE272BBCD445004B5307 /* Swinject */,
+				A92B7DEB2BBF5053008CD982 /* Lottie */,
 			);
 			productName = Movier;
 			productReference = A99BFDE92BBB6A2F004B5307 /* Movier.app */;
@@ -336,6 +356,7 @@
 			mainGroup = A99BFDE02BBB6A2F004B5307;
 			packageReferences = (
 				A99BFE262BBCD445004B5307 /* XCRemoteSwiftPackageReference "Swinject" */,
+				A92B7DEA2BBF5053008CD982 /* XCRemoteSwiftPackageReference "lottie-ios" */,
 			);
 			productRefGroup = A99BFDEA2BBB6A2F004B5307 /* Products */;
 			projectDirPath = "";
@@ -352,8 +373,10 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A92B7DF02BBF50F9008CD982 /* nod.json in Resources */,
 				A99BFDF92BBB6A32004B5307 /* LaunchScreen.storyboard in Resources */,
 				A99BFE092BBB738A004B5307 /* MainViewController.storyboard in Resources */,
+				A92B7DEF2BBF50F9008CD982 /* shake.json in Resources */,
 				A99BFDF62BBB6A32004B5307 /* Assets.xcassets in Resources */,
 				A99BFE0B2BBB75E7004B5307 /* MovieStackViewController.storyboard in Resources */,
 				A99BFE2A2BBCD4ED004B5307 /* TMDBKey.plist in Resources */,
@@ -382,6 +405,7 @@
 				A99BFE132BBBCBDA004B5307 /* UIView+Extension.swift in Sources */,
 				A99BFE2F2BBD026A004B5307 /* TrendingMovieResponse.swift in Sources */,
 				A99BFE102BBBC6C5004B5307 /* SwipeableCardStackView.swift in Sources */,
+				A92B7DE92BBF48D0008CD982 /* MovieSwipeableCardView.swift in Sources */,
 				A99BFE372BBD0768004B5307 /* DataTaskFactory.swift in Sources */,
 				A99BFDF12BBB6A2F004B5307 /* MainViewController.swift in Sources */,
 				A99BFDED2BBB6A2F004B5307 /* AppDelegate.swift in Sources */,
@@ -684,6 +708,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		A92B7DEA2BBF5053008CD982 /* XCRemoteSwiftPackageReference "lottie-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/airbnb/lottie-ios.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 4.4.2;
+			};
+		};
 		A99BFE262BBCD445004B5307 /* XCRemoteSwiftPackageReference "Swinject" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/Swinject/Swinject.git";
@@ -695,6 +727,11 @@
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		A92B7DEB2BBF5053008CD982 /* Lottie */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A92B7DEA2BBF5053008CD982 /* XCRemoteSwiftPackageReference "lottie-ios" */;
+			productName = Lottie;
+		};
 		A99BFE272BBCD445004B5307 /* Swinject */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = A99BFE262BBCD445004B5307 /* XCRemoteSwiftPackageReference "Swinject" */;

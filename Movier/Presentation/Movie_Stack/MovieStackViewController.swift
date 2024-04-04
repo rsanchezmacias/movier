@@ -13,7 +13,6 @@ class MovieStackViewController: UIViewController {
     
     private var swipeableCardStack: SwipeableCardStackView!
     
-    private let colors: [UIColor] = [.blue, .black, .green, .orange, .yellow]
     private var cards: [SwipeableCardView] = []
     
     override func viewDidLoad() {
@@ -28,9 +27,8 @@ class MovieStackViewController: UIViewController {
         swipeableCardStack.centerYAnchor.constraint(equalTo: self.view.centerYAnchor).isActive = true
         
         
-        for color in colors {
-            let swipeView = SwipeableCardView()
-            swipeView.backgroundColor = color
+        for _ in 0...6 {
+            let swipeView = MovieSwipeableCardView()
             cards.append(swipeView)
         }
         
